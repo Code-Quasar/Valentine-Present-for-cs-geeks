@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Valentine's Day</title>
+    <link rel="stylesheet" href="valentine.css">
+</head>
+<body>
+    <div class="main">
+        <div class="envelope">
+            <div class="back">
+                <div class="arrow-up" id="b"></div>
+                <div class="two">
+                    <div class="arrow-left"></div>
+                    <div class="arrow-right"></div>
+                </div>
+            </div>
+        </div>
+        <div id="card">
+            <p>Happy Valentine's Day! Just wanted to let you know how much our relation means to me.</p>
+            <p>Wishing you a day filled with love and happiness!</p>
+        </div>
+        
+        <button id="tap">
+            Tap me
+        </button>
+    </div>
+    <div id="container" style="max-width: 100vw;"></div> <!-- Container for flying hearts -->
+
+<script>
+
+    function generateHearts() {
+        var container = document.getElementById("container");
+        var heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * container.clientWidth + "px";
+        container.appendChild(heart);
+    }
+
+    document.getElementById("tap").addEventListener("click", function() {
+        document.getElementById("b").style.transform = "rotateX(180deg) translateY(18vh)";
+        setTimeout(function() {
+            document.getElementById("card").style.opacity = "1";
+            document.getElementById("card").style.display = "block";
+            document.getElementById("card").style.transform = "translateY(-18vh)";
+        }, 1000);
+
+        let audio = new Audio('C:\\Users\\zamou\\WebstormProjects\\untitled\\song.mp3'); // Replace 'your_music.mp3' with the path to your music file
+        audio.play().catch(function(error) {
+            console.log('Autoplay was prevented. You need to interact with the document first.');
+            // You can show a message to the user or handle the error accordingly
+        });
+        // Generate flying hearts
+        for (var i = 0; i < 20; i++) {
+            setTimeout(generateHearts, i * 200); // Generate hearts with a slight delay for animation effect
+        }
+    });
+
+
+</script>
+</body>
+</html>
