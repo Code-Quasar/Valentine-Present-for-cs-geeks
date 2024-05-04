@@ -28,3 +28,4 @@ You can change the message, styling, and animation effects to create a personali
   - HTML
   - CSS
   - JavaScript
+> Special thanks to Maram Hamami for the brilliant idea that sparked this project.
